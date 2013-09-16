@@ -1,1 +1,0 @@
-jsLP.js is a pure javascript library that is built to have common and useful functions.
