@@ -17,3 +17,11 @@
 	strMonth = strMonth.toUpperCase();
 	return strMonth + ", " + y;
 }
+function fixedFromCharCode (c) {
+	if (c > 0xFFFF) {
+		c -= 0x10000;
+		return String.fromCharCode(0xD800 + (c >> 10), 0xDC00 + (c & 0x3FF));
+	}
+	else {	return String.fromCharCode(c);	}
+	// e.g. foo = fixedFromCharCode(0x1D15D);
+}
