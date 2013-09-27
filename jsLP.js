@@ -1,4 +1,11 @@
-﻿function numberToMonthYear(m,y) {
+if (!String.prototype.trim) {
+ String.prototype.trim = function() {
+  return this.replace(/^\s+|\s+$/g,'');
+ }
+};
+// If trim() function is not supported
+
+function numberToMonthYear(m,y) {
 	var strMonth = "";
 	switch (m)	{
 		case 1: strMonth="January";break;
@@ -24,4 +31,9 @@ function fixedFromCharCode (c) {
 	}
 	else {	return String.fromCharCode(c);	}
 	// e.g. foo = fixedFromCharCode(0x1D15D);
+}
+function stringToSearchQuery (s,d) {
+	s = s.trim();
+	return s.replace(/\s+/g, d);
+	// stringToSearchQuery('I love you', '+AND+') returns I+AND+love+AND+you
 }
