@@ -4,7 +4,7 @@ if (!String.prototype.trim) {
  }
 };
 // If trim() function is not supported
-
+function LPdefaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
 function numberToMonthYear(m,y) {
 	var strMonth = "";
 	switch (m)	{
@@ -37,3 +37,12 @@ function stringToSearchQuery (s,d) {
 	return s.replace(/\s+/g, d);
 	// stringToSearchQuery('I love you', '+AND+') returns I+AND+love+AND+you
 }
+function LPlnkAndTxt(c,l) {
+	var cl = l.trim();
+	if (cl !=='') { 
+		cl  = '<a href="' + cl + '" rel="nofollow" target="_blank">' + c.trim() + '</a>';
+	}
+	else {cl = c.trim();}
+	return cl;
+	// Combine link and text
+}	
