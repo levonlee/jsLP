@@ -78,3 +78,9 @@ function LPlnkAndTxt(c,l) {
 	return cl;
 	// Combine link and text
 }	
+function LPurlHash() {
+  var arr = window.location.hash.split('#');
+  if(typeof arr[1] !== "undefined") { return arr[1]}
+  else return '';
+  // Get URL hash value
+}
