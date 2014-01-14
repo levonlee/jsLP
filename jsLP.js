@@ -4,7 +4,9 @@ if (!String.prototype.trim) {
  }
 };
 // If trim() function is not supported
+
 function LPdefaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
+
 function numberToMonthYear(m,y) {
 	var strMonth = "";
 	switch (m)	{
