@@ -26,6 +26,7 @@ function numberToMonthYear(m,y) {
 	strMonth = strMonth.toUpperCase();
 	return strMonth + ", " + y;
 }
+
 function fixedFromCharCode (c) {
 	if (c > 0xFFFF) {
 		c -= 0x10000;
@@ -34,11 +35,13 @@ function fixedFromCharCode (c) {
 	else {	return String.fromCharCode(c);	}
 	// e.g. foo = fixedFromCharCode(0x1D15D);
 }
+
 function stringToSearchQuery (s,d) {
 	s = s.trim();
 	return s.replace(/\s+/g, d);
 	// stringToSearchQuery('I love you', '+AND+') returns I+AND+love+AND+you
 }
+
 function LPUpdateQueryString(key, value, url) {
 	if (!url) url = window.location.href;
 	var re = new RegExp("([?|&])" + key + "=.*?(&|#|$)(.*)", "gi");
@@ -71,6 +74,7 @@ function LPUpdateQueryString(key, value, url) {
 	// http://stackoverflow.com/questions/5999118/add-or-update-query-string-parameter
 	// e.g. LPUpdateQueryString('aUrlVar','123','/index.php?a=1&aUrlVar=2') changes aUrlVar to 123.
 }
+
 function LPlnkAndTxt(c,l) {
 	var cl = l.trim();
 	if (cl !=='') { 
