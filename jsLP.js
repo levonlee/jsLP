@@ -90,3 +90,11 @@ function LPurlHash() {
   else return '';
   // Get URL hash value
 }
+
+var correctYear = function(value, options){
+  var theDate=new Date();
+  var theYear=theDate.getFullYear();
+  if (value < 1900 || value > theYear+1) return false;
+  return true;
+}		
+// Validate year format
