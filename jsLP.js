@@ -98,3 +98,13 @@ var correctYear = function(value, options){
   return true;
 }		
 // Validate year format
+
+function LPgetURLvar(name){
+ name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
+ var regexS = "[\\?&]"+name+"=([^&#]*)";  
+ var regex = new RegExp( regexS );  
+ var results = regex.exec( window.location.href ); 
+ if( results == null )  return "";  
+ else    return results[1];
+}
+// Get URL parameter. e.g. url=http://google.com?abc=123 LPgetURLvar('abc') is 123, LPgetURLvar('xyz') is empty 
