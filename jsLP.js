@@ -108,3 +108,8 @@ function LPgetURLvar(name){
  else    return results[1];
 }
 // Get URL parameter. e.g. url=http://google.com?abc=123 LPgetURLvar('abc') is 123, LPgetURLvar('xyz') is empty 
+
+// Check if object is empty
+function LP_is_Obj_Empty(obj) {
+    return Object.keys(obj).length === 0;
+}
