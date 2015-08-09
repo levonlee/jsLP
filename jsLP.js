@@ -113,3 +113,19 @@ function LPgetURLvar(name){
 function LP_is_Obj_Empty(obj) {
     return Object.keys(obj).length === 0;
 }
+
+// Detect if localStorage is supported
+function LP_has_localStorage() {
+    var uid = new Date;
+    var storage;
+    var result;
+    try {
+        (storage = window.localStorage).setItem(uid, uid);
+        result = storage.getItem(uid) == uid;
+        storage.removeItem(uid);
+        return result && storage;
+    } catch (exception) {
+        return false;
+    }
+}
+// if (LP_has_localStorage()) { set localStorage }
