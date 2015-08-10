@@ -129,3 +129,19 @@ function LP_has_localStorage() {
     }
 }
 // if (LP_has_localStorage()) { set localStorage }
+
+function format_currency(amount) {
+  // Format currency $12,999
+  // this function requires phpJS.js
+  var currency_symbol = '$';
+  var currency_separator = ',';
+  var currency_placement = '1'; // 1: number first and then symbol
+  
+  // remove any letters
+  amount = amount.replace(/[^0-9]/,"",amount);
+  if (!amount) return false;
+  
+  var r = (currency_separator) ? number_format(amount, 0, '.', currency_separator) : amount;
+  r = (currency_placement) ? (currency_symbol + r) : (r + currency_symbol);
+  return r;
+}
