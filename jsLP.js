@@ -165,5 +165,5 @@ function LP_merge_objs(target, source) {
     target = LP_merge_objs(target, arguments[a]);
   }
   return target;
-};
+}
 // var d = LP_merge_objs(a,b,c);
