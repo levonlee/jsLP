@@ -130,7 +130,7 @@ function LP_has_localStorage() {
 }
 // if (LP_has_localStorage()) { set localStorage }
 
-function format_currency(amount) {
+function LP_format_currency(amount) {
   // Format currency $12,999
   // this function requires phpJS.js
   var currency_symbol = '$';
@@ -145,3 +145,25 @@ function format_currency(amount) {
   r = (currency_placement) ? (currency_symbol + r) : (r + currency_symbol);
   return r;
 }
+
+// Merge objects
+function LP_merge_objs(target, source) {
+	if ( typeof target !== 'object' ) target = {};
+    
+  for (var property in source) {
+    if ( source.hasOwnProperty(property) ) {
+      var sourceProperty = source[ property ];
+      if ( typeof sourceProperty === 'object' ) {
+        target[ property ] = LP_merge_objs( target[ property ], sourceProperty );
+        continue;
+      }
+      target[ property ] = sourceProperty;
+    }
+  }
+    
+  for (var a = 2, l = arguments.length; a < l; a++) {
+    target = LP_merge_objs(target, arguments[a]);
+  }
+  return target;
+};
+// var d = LP_merge_objs(a,b,c);
