@@ -167,3 +167,17 @@ function LP_merge_objs(target, source) {
   return target;
 }
 // var d = LP_merge_objs(a,b,c);
+
+function LP_URL_path() {
+	var get_holder = {};
+	parse_str(parts['query'],get_holder);
+	var parts = parse_url(window.location.href);
+	return {
+		// Convert URL path e.g. '/a/b/' into array without empty items
+		path: window.location.pathname.match(/[^/]+/g),
+		// get_holder['urlParam1'] get_holder['urlParam2'] etc.
+		query: get_holder
+	}
+}
+
+
