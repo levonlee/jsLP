@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Test jsLP Javaascript Library</title>
+	<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.2.1.css">
+	<script src="jsLP.js"></script>
+
+</head>
+<body>
+
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src="https://code.jquery.com/qunit/qunit-2.2.1.js"></script>
+<script>
+	QUnit.config.collapse = false; // Expand for every failing test.
+	QUnit.config.hidepassed = false;
+	QUnit.test( "isEmptyObj(obj)", function(assert) {
+		function test(arg, expect, msg) {
+			assert.equal( jsLP.m.isEmptyObj(arg),
+				expect, msg);
+		}
+
+		var p = "jsLP.m.isEmptyObj( ";
+		var s = " ) = "
+		var arg = {};
+		test(arg, true, p +"{}"+ s +"true");
+		arg = "";
+		test(arg, true, p +'""'+ s +"true");
+		arg = 123;
+		test(arg, true, p +'123'+ s +"true");
+
+		//assert.ok(true,"true succeeds");
+	});
+
+	// Callbacks
+	QUnit.done(function(details) {
+		// When all tests are done
+		// Number: details.failed, .passed, .total
+		// Number of milliseconds: detail.runtime
+		// Expand all tests
+		var holders = document.querySelectorAll('.qunit-assert-list, .qunit-source');
+		[].forEach.call(holders, function(holder) {
+			holder.classList.remove("qunit-collapsed");
+		});
+	});
+	// Callbacks.
+</script>
+</body>
+</html>
