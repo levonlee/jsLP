@@ -9,13 +9,23 @@
 
 </head>
 <body>
-
+<div id="testElements"></div>
 <div id="qunit"></div>
 <div id="qunit-fixture"></div>
 <script src="https://code.jquery.com/qunit/qunit-2.2.1.js"></script>
 <script>
 	QUnit.config.collapse = false; // Expand for every failing test.
 	QUnit.config.hidepassed = false;
+
+	// Create test elements
+	var testDiv = document.getElementById('testElements');
+
+	var newDiv = document.createElement('div');
+	var newContent = document.createTextNode('Hi there');
+	newDiv.appendChild(newContent);
+
+	testDiv.insertBefore(newDiv, null);
+	
 	QUnit.test( "isEmptyObj(obj)", function(assert) {
 		function test(arg, expect, msg) {
 			assert.equal( jsLP.m.isEmptyObj(arg),
